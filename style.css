@@ -4,7 +4,7 @@
 {
   --bg-body-color: #222;
   --bg-primary-color: #f0f;
-  --bg-secondary-color: #06f;
+  --bg-secondary-color: #444;
   --bg-input-color: #fff;
   
   
@@ -91,8 +91,6 @@ form button[type=submit]
 .container
 {
   display: grid;
-  grid-template-columns: 40px 50px auto 50px 40px;
-  margin: 0;
 }
 
 .item
@@ -100,13 +98,29 @@ form button[type=submit]
   padding: 1rem;
 }
 
-.item-fullspan
+.search_record
 {
-  grid-column-start: 1;
-  grid-column-end: span 6;
+  background-color: var(--bg-secondary-color);
+  color: var(--font-secondary-color);
+}
+.search_record a
+{
+  color: var(--font-secondary-color);
+  text-decoration: underline;
+  display: block;
+}
+.search_record .avatar
+{
+  max-width: 5rem;
 }
 
-.span-5
-{
-  grid-column-end: span 5;
-}
+.span-1 { grid-column-end: span 1; }
+.span-2 { grid-column-end: span 2; }
+.span-3 { grid-column-end: span 3; }
+.span-4 { grid-column-end: span 4; }
+.span-5 { grid-column-end: span 5; }
+.span-6 { grid-column-end: span 6; }
+
+
+/** Utilities **/
+.hide { display: none; }

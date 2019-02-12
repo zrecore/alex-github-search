@@ -19,3 +19,5 @@ Http.get = function(url, callback, stateHandler) {
     }
   };
 };
+
+export {Http};

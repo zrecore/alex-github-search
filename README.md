@@ -8,30 +8,13 @@ Click `Show` in the header to see your app live. Updates to your code will insta
 Find out more [about Glitch](https://glitch.com/about).
 
 
-Your Project
+Alex GitHub Search
 ------------
 
-### ← README.md
+### About
 
-That's this file, where you can tell people what your cool website does and how you built it.
+I built this plain javascript/html/css app from scratch. No external libraries, no fluff - just pure googling and bare-metal code. Uses CSS grids, media queries, and js module loading. I've added a rudimentary HTTP method helper, and Observable pattern implementation.
 
-### ← index.html
+The main application logic is in `script.app.js`
 
-Where you'll write the content of your website. 
-
-### ← style.css
-
-CSS files add styling rules to your content.
-
-### ← script.js
-
-If you're feeling fancy you can add interactivity to your site with JavaScript.
-
-### ← assets
-
-Drag in `assets`, like images or music, to add them to your project
-
-Made by [Glitch](https://glitch.com/)
--------------------
-
-\ ゜o゜)ノ
+This entire application will seem foreign to me in about a month... 

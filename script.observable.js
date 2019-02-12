@@ -1,7 +1,7 @@
 /** ... Observables utility (instantiable) **/
 // See https://www.dofactory.com/javascript/observer-design-pattern
 function Observable() {
-  this.handlers = []; // Observers
+  this.handlers = []; // Keep a list of handlers to call when something happens (runs).
 };
 
 Observable.prototype = {
@@ -23,3 +23,5 @@ Observable.prototype = {
     });
   }
 };
+
+export { Observable };
