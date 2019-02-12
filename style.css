@@ -1,0 +1,126 @@
+/* CSS files add styling rules to your content */
+
+:root
+{
+  --bg-body-color: #222;
+  --bg-primary-color: #f0f;
+  --bg-secondary-color: #444;
+  --bg-input-color: #fff;
+  
+  
+  --font-primary-color: #fff;
+  --font-secondary-color: #fff;
+  --font-input-color: #606060;
+  --font-label-color: #000;
+  
+  --form-border-color: #fff;
+}
+
+/* Gonna set up some DOM element styles. */
+
+body {
+  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+  margin: 2rem 25%;
+  
+  background-color: var(--bg-body-color);
+  color: var(--font-primary-color);
+}
+
+h1 {
+  text-decoration: underline;
+  color: var(--font-primary-color);
+  margin: 0 0 1rem 0;
+}
+
+a {
+  color: var(--bg-primary-color);
+}
+
+form
+{
+  display: grid;
+}
+
+form a,
+form button,
+form input,
+form select,
+form textarea,
+form label
+{
+  
+  color: var(--font-input-color);
+  font-weight: bold;
+  border: none;
+  
+  font-size: 1.4rem;
+}
+
+form label
+{
+  font-weight: bold;
+  color: var(--font-label-color);
+  background-image: linear-gradient(0deg, #fff, #fff);
+}
+
+@media (min-width: 1180px)
+{
+  form label
+  {
+    background-color: none;
+    background-image: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 0) 40%),
+    linear-gradient(-135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 1) 35%, rgba(255, 255, 255, 1) 85%, rgba(255, 255, 255, 0) 85%);
+  }
+}
+
+form input
+{
+  background-color: var(--bg-input-color);
+  border: solid 2px var(--bg-input-color);
+  color: var(--font-input-color);
+}
+
+form button[type=submit]
+{
+  background-color: var(--bg-primary-color);
+  color: var(--font-primary-color);
+  border: solid 2px var(--form-border-color);
+}
+
+.container
+{
+  display: grid;
+}
+
+.item
+{
+  padding: 1rem;
+}
+
+.search_record
+{
+  background-color: var(--bg-secondary-color);
+  color: var(--font-secondary-color);
+}
+.search_record a
+{
+  color: var(--font-secondary-color);
+  text-decoration: underline;
+  display: block;
+}
+.search_record .avatar
+{
+  max-width: 5rem;
+}
+
+.span-1 { grid-column-end: span 1; }
+.span-2 { grid-column-end: span 2; }
+.span-3 { grid-column-end: span 3; }
+.span-4 { grid-column-end: span 4; }
+.span-5 { grid-column-end: span 5; }
+.span-6 { grid-column-end: span 6; }
+
+
+/** Utilities **/
+.hide { display: none; }
