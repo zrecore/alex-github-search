@@ -9,7 +9,7 @@ Observable.prototype = {
     this.handlers.push(callback);
   },
   unsubscribe: function (callback) {
-    this.handlers.filter(function (item) {
+    this.handlers = this.handlers.filter(function (item) {
       if (item !== callback) {
         return callback;
       }
