@@ -63,6 +63,7 @@ form input
   background-color: var(--bg-input-color);
   border: solid 2px var(--bg-input-color);
   color: var(--font-input-color);
+  border-radius: 0;
 }
 
 form button[type=submit]
@@ -70,12 +71,13 @@ form button[type=submit]
   background-color: var(--bg-primary-color);
   color: var(--font-primary-color);
   border: solid 2px var(--form-border-color);
+  border-radius: 0;
 }
 
 .container, form
 {
   display: grid;
-  grid-template-columns: calc(100% / 6) calc(100% / 6) calc(100% / 6) calc(100% / 6) calc(100% / 6) auto;
+  grid-template-columns: auto auto auto auto auto auto;
 }
 
 .item
