@@ -23,6 +23,11 @@ let onReady = () => {
   searchQuery.focus();
   searchQuery.select();
   
+  searchQuery.addEventListener('change', (ev) => {
+    // Reset the app page index when the query changes!
+    app_page_index = 1;
+  });
+  
   // Subscribe to observables.
   let queryResultHandler = (data) => {
     console.log('queryResultHandler', data);
@@ -31,8 +36,8 @@ let onReady = () => {
     if (data.total_count > 0)
     {
       // Get the search results ready!
-      let total_pages = Math.ceil(data.total_count / app_items_per_page);
-      let paginator_template = `<a href="#first">First</a> | <a href="#previous">Prev.</a> | ${app_page_index}/${total_pages} | <a href="#next">Next</a> | <a href="#last">Last</a>`;
+      let total_pages = Math.ceil(Math.min(data.total_count, 1000) / app_items_per_page); // Unauthenticated GitHub API calls are limited to the first 1k results!
+      let paginator_template = `<a class="nav_link" href="#first">First</a> | <a class="nav_link" href="#previous">Prev.</a> | ${app_page_index}/${total_pages} | <a class="nav_link" href="#next">Next</a> | <a class="nav_link" href="#last">Last</a>`;
       let search_records = '';
       
       data.items.forEach((item) => {
@@ -46,6 +51,48 @@ let onReady = () => {
       let searchResultSummary = document.querySelector('.search_result_summary');
       
       // @TODO finish adding event handlers for pagination controls.
+      let navLinks = document.querySelectorAll('.nav_link');
+      console.log('navLinks', navLinks);
+      navLinks.forEach((anchor) => {
+        anchor.addEventListener('click', (ev) => {
+          ev.preventDefault(); // Don't navigate the page away anywhere.
+          
+          let href = ev.target.attributes.href.value;
+          let allow = true;
+          console.log("clicked nav link!", href);
+          
+          switch (href) {
+            case '#first':
+              app_page_index = 1;
+              break;
+            case '#next':
+              ++app_page_index;
+              break;
+            case '#previous':
+              --app_page_index;
+              break;
+            case '#last':
+              app_page_index = total_pages - 1;
+              break;
+            default:
+              allow = false;
+              break;
+          }
+          // Let's keep the page index within bounds!
+          app_page_index = Math.min(Math.max(app_page_index, 1), total_pages);
+          
+          if (allow)
+          {
+            // Fire off the form submit event, and process the query.
+            let submitEv = new Event('submit', {cancelable: true});
+            searchForm.dispatchEvent(submitEv);
+          }
+          
+          return false;
+        });
+        
+        return anchor;
+      });
     } else {
       // No results.
       searchResults.innerHTML = '<div class="item span-6 search_result_summary"><em>No Results.</em></div>';
