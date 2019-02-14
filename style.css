@@ -20,7 +20,6 @@
 
 body {
   font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
-  margin: 2rem 25%;
   
   background-color: var(--bg-body-color);
   color: var(--font-primary-color);
@@ -36,10 +35,6 @@ a {
   color: var(--bg-primary-color);
 }
 
-form
-{
-  display: grid;
-}
 
 form a,
 form button,
@@ -63,17 +58,6 @@ form label
   background-image: linear-gradient(0deg, #fff, #fff);
 }
 
-@media (min-width: 1180px)
-{
-  form label
-  {
-    background-color: none;
-    background-image: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 0) 40%),
-    linear-gradient(-135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 1) 35%, rgba(255, 255, 255, 1) 85%, rgba(255, 255, 255, 0) 85%);
-  }
-}
-
 form input
 {
   background-color: var(--bg-input-color);
@@ -88,13 +72,15 @@ form button[type=submit]
   border: solid 2px var(--form-border-color);
 }
 
-.container
+.container, form
 {
   display: grid;
+  grid-template-columns: calc(100% / 6) calc(100% / 6) calc(100% / 6) calc(100% / 6) calc(100% / 6) auto;
 }
 
 .item
 {
+  margin: 0;
   padding: 1rem;
 }
 
@@ -124,3 +110,44 @@ form button[type=submit]
 
 /** Utilities **/
 .hide { display: none; }
+
+
+/** Media queries **/
+@media (min-width: 1180px)
+{
+  body
+  {
+    margin: 2rem 25%;
+    padding: 0;
+  }
+  
+  form label
+  {
+    background-color: none;
+    background-image: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 0) 40%),
+    linear-gradient(-135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 1) 35%, rgba(255, 255, 255, 1) 85%, rgba(255, 255, 255, 0) 85%);
+  }
+  
+  form input
+  {
+    border: 0;
+  }
+  form button[type=submit]
+  {
+    border: 0;
+  }
+}
+
+@media (max-width: 400px)
+{
+  body
+  {
+    margin: 0 0;
+  }
+  .item
+  {
+    padding: 0.25rem;
+  }
+  
+}
